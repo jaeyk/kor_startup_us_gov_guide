@@ -189,7 +189,7 @@ export default function App() {
               <a href="https://codeforamerica.org/">
                 코드 포 아메리카(Code for America)
               </a>
-              에서 데이터 과학자로 일하며 미국 정부와 협력하여 복지 정책의 접근성을 개선하는 일을 했습니다. 현재는 미국 대학 교수로서 시빅 테크, 행정 부담, 공공 조달, 인공지능 정책에 관련된 연구를 진행 중입니다.{" "}
+              에서 데이터 과학자로 일하며 미국 정부와 협력하여 복지 정책의 접근성을 개선했습니다. 현재는 미국 대학 교수로서 시빅 테크, 행정 부담, 공공 조달, 인공지능 정책을 연구합니다.{" "}
               <a href="https://jaeyk.github.io/pof-lab/">
                 사람, 조직, 미래 랩(People, Organizations, Futures Lab)
               </a>의 설립자이자 디렉터입니다. 한국어 책으로는{" "}
