@@ -25,7 +25,7 @@ export const chapters = [
     part: "Part I",
     slug: "the-invisible-government",
     file: "03-the-invisible-government.md",
-    title: "미국 정부를 설명하는 키워드는 "파트너십"이다",
+    title: "미국 정부를 설명하는 키워드는 \"파트너십\"이다",
   },
   {
     number: "04",
