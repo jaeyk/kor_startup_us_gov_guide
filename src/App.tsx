@@ -182,7 +182,7 @@ export default function App() {
               <a href="https://jaeyk.github.io/">김재연</a>
             </h2>
             <p className="author-role">
-              미국 노스캐롤라이나대학교 채플힐(UNC Chapel Hill) 정책학과 교수
+              미국 노스캐롤라이나대 채플힐(UNC Chapel Hill) 정책학과 교수
             </p>
             <p>
               학계로 돌아오기 전에는 미국의 대표적 시빅 테크 단체인{" "}
