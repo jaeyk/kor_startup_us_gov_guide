@@ -1,0 +1,12 @@
+{
+  "title": "한국 스타트업을 위한 미국 정부 가이드",
+  "language": "ko",
+  "description": "This web app offers essential guidance for Korean startups navigating the U.S. government procurement landscape, highlighting market trends and AI impacts.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
