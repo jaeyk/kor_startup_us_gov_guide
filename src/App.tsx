@@ -196,7 +196,7 @@ export default function App() {
               <a href="https://wethedata.vercel.app/">
                 《우리에게는 다른 데이터가 필요하다》
               </a>
-              (세종서적, 2023)를 출판했습니다. UC 버클리로 정치학 박사 유학을 오기 전에는 한국의 스타트업에서 전략 매니저로 일했습니다.
+              (세종서적, 2023)를 출판했습니다. UC 버클리로 박사 유학을 오기 전에는 한국의 스타트업에서 전략 매니저로 일했습니다.
             </p>
             <ul className="author-links">
               <li>
