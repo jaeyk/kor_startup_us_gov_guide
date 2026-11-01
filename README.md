@@ -28,7 +28,7 @@ src/content/chapters/
 각 장의 "알고 싶은 내용 알려주기" 버튼과 본문 문장을 선택하면 나타나는 버튼은 `src/feedback-config.ts`의 `feedbackForm` 설정을 따릅니다.
 
 - `{ type: "github" }`: GitHub 이슈로 의견을 받습니다. 독자에게 GitHub 계정이 필요합니다.
-- `{ type: "google", url, chapterField, quoteField }`: 구글 폼으로 받습니다. 폼에 "장"과 "선택한 문장" 단답형 질문을 만든 뒤, "미리 채워진 링크 가져오기"로 각 질문의 `entry.` 번호를 확인해 넣습니다.
+- `{ type: "google", url, chapterField, chapterOptions, quoteField }`: 구글 폼으로 받습니다. "미리 채워진 링크 가져오기"로 각 질문의 `entry.` 번호를 확인해 넣습니다. `chapterField`는 장을 고르는 드롭다운 질문이고, `chapterOptions`에는 그 선택지를 전체, 1장, 2장 순서로 폼과 똑같이 적습니다. 폼의 선택지나 장을 바꾸면 여기도 함께 고쳐야 합니다. `quoteField`는 독자가 선택한 문장이 채워질 질문입니다.
 - `{ type: "tally", url }`: Tally로 받습니다. 양식에 `chapter`, `quote` 이름의 숨은 필드가 있어야 합니다.
 
 `subscribeUrl`에 구독 양식 링크를 넣으면 "업데이트 소식 받기" 링크가 나타납니다.
