@@ -2,10 +2,19 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #faf9f6;
-  --text: #1f2429;
-  --line: #d9d8d3;
-  --accent: #1f4e8c;
+  /* Smith palette from MoMAColors (github.com/BlakeRMills/MoMAColors). */
+  --orange: #ef7923;
+  --teal: #75bca9;
+  --periwinkle: #7b89bb;
+  --cream: #e9de97;
+  --ink: #2a2e38;
+
+  /* Orange is too light for small text, so text uses a darker shade of it. */
+  --accent: #b04c0b;
+  --background: #fbf8ec;
+  --text: var(--ink);
+  --line: #e3dcc0;
+  --code-background: #f3edc9;
   --header-height: 64px;
   --sans: 'Noto Sans KR', sans-serif;
   --serif: 'Source Serif 4', Georgia, serif;
@@ -13,6 +22,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--cream);
 }
 
 @layer base {
@@ -49,6 +62,23 @@ html {
   padding: 0 4vw;
 }
 
+.header::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--orange) 0 20%,
+    var(--teal) 20% 40%,
+    var(--periwinkle) 40% 60%,
+    var(--cream) 60% 80%,
+    var(--ink) 80%
+  );
+}
+
 .menu {
   display: flex;
   min-width: 0;
@@ -71,7 +101,7 @@ html {
 }
 
 .menu a[aria-current] {
-  border-bottom-color: var(--accent);
+  border-bottom-color: var(--orange);
 }
 
 .index {
@@ -113,7 +143,7 @@ html {
 .call-for-input {
   max-width: 600px;
   margin-top: 40px;
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--orange);
   padding-left: 24px;
 }
 
@@ -147,7 +177,7 @@ html {
 }
 
 .author {
-  border-top: 3px solid var(--accent);
+  border-top: 3px solid var(--orange);
   padding-top: 24px;
   scroll-margin-top: calc(var(--header-height) + 24px);
 }
@@ -254,10 +284,34 @@ html {
 }
 
 .part-title span {
-  color: var(--accent);
   font-family: var(--serif);
   font-size: 17px;
   font-style: italic;
+}
+
+.part-title span::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  background: var(--part-color);
+}
+
+#part-1 {
+  --part-color: var(--orange);
+}
+
+#part-2 {
+  --part-color: var(--teal);
+}
+
+#part-3 {
+  --part-color: var(--periwinkle);
+}
+
+#part-4 {
+  --part-color: var(--ink);
 }
 
 .part-title h2 {
@@ -380,7 +434,7 @@ footer {
 }
 
 .markdown blockquote {
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--orange);
   padding-left: 24px;
   font-family: var(--serif);
   font-size: 21px;
@@ -395,7 +449,7 @@ footer {
 
 .markdown code {
   border-radius: 3px;
-  background: #ecebe7;
+  background: var(--code-background);
   padding: 2px 5px;
   font-size: 0.9em;
 }
@@ -415,7 +469,7 @@ footer {
 .chapter-feedback {
   margin-top: 40px;
   border: 1px solid var(--line);
-  border-top: 3px solid var(--accent);
+  border-top: 3px solid var(--orange);
   background: #fff;
   padding: 32px;
 }
@@ -462,16 +516,19 @@ footer {
 .button {
   display: inline-block;
   border-radius: 4px;
-  background: var(--accent);
+  background: var(--orange);
   padding: 12px 22px;
-  color: #fff;
+  color: var(--ink);
   font-size: 16px;
   font-weight: 600;
-  transition: background 150ms ease;
+  transition:
+    background 150ms ease,
+    color 150ms ease;
 }
 
 .button:hover {
-  background: #163a69;
+  background: var(--ink);
+  color: #fff;
 }
 
 .selection-feedback {
@@ -489,7 +546,8 @@ footer {
 }
 
 .selection-feedback:hover {
-  background: var(--accent);
+  background: var(--orange);
+  color: var(--ink);
 }
 
 .updates {
