@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,500;1,500&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap');
 @import 'tailwindcss';
 
 :root {
-  /* Smith palette from MoMAColors (github.com/BlakeRMills/MoMAColors). */
-  --orange: #ef7923;
-  --teal: #75bca9;
-  --periwinkle: #7b89bb;
-  --cream: #e9de97;
-  --ink: #2a2e38;
-
-  /* Orange is too light for small text, so text uses a darker shade of it. */
-  --accent: #b04c0b;
-  --background: #fbf8ec;
+  /* Policy-report palette: navy ink on white, one civic-blue accent. */
+  --ink: #14213d;
+  --accent: #1f5aa6;
+  --accent-hover: #17457f;
+  --muted: #5b6474;
+  --gold: #8a6508;
+  --background: #ffffff;
+  --surface: #f4f5f7;
   --text: var(--ink);
-  --line: #e3dcc0;
-  --code-background: #f3edc9;
+  --line: #d5d9e0;
+  --selection: #d6e4f5;
+  --code-background: #eef1f5;
   --header-height: 64px;
-  --sans: 'Noto Sans KR', sans-serif;
-  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'Pretendard Variable', Pretendard, 'Noto Sans KR', sans-serif;
+  --serif: 'Noto Serif KR', Georgia, serif;
 }
 
 html {
@@ -25,7 +25,7 @@ html {
 }
 
 ::selection {
-  background: var(--cream);
+  background: var(--selection);
 }
 
 @layer base {
@@ -68,15 +68,8 @@ html {
   right: 0;
   bottom: -1px;
   left: 0;
-  height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--orange) 0 20%,
-    var(--teal) 20% 40%,
-    var(--periwinkle) 40% 60%,
-    var(--cream) 60% 80%,
-    var(--ink) 80%
-  );
+  height: 3px;
+  background: var(--ink);
 }
 
 .menu {
@@ -101,7 +94,7 @@ html {
 }
 
 .menu a[aria-current] {
-  border-bottom-color: var(--orange);
+  border-bottom-color: var(--accent);
 }
 
 .index {
@@ -118,15 +111,7 @@ html {
   padding: 96px 0 88px;
 }
 
-.kicker {
-  color: var(--accent);
-  font-family: var(--serif);
-  font-size: 17px;
-  font-style: italic;
-}
-
 .intro h1 {
-  margin-top: 20px;
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 700;
   line-height: 1.25;
@@ -143,7 +128,7 @@ html {
 .call-for-input {
   max-width: 600px;
   margin-top: 40px;
-  border-left: 3px solid var(--orange);
+  border-left: 3px solid var(--accent);
   padding-left: 24px;
 }
 
@@ -166,10 +151,10 @@ html {
 .toc-status {
   display: inline-block;
   margin-left: 12px;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--gold);
   border-radius: 999px;
   padding: 1px 10px;
-  color: var(--accent);
+  color: var(--gold);
   font-size: 13px;
   font-style: normal;
   font-weight: 600;
@@ -177,7 +162,7 @@ html {
 }
 
 .author {
-  border-top: 3px solid var(--orange);
+  border-top: 3px solid var(--ink);
   padding-top: 24px;
   scroll-margin-top: calc(var(--header-height) + 24px);
 }
@@ -284,34 +269,11 @@ html {
 }
 
 .part-title span {
-  font-family: var(--serif);
-  font-size: 17px;
-  font-style: italic;
-}
-
-.part-title span::before {
-  content: '';
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-right: 8px;
-  background: var(--part-color);
-}
-
-#part-1 {
-  --part-color: var(--orange);
-}
-
-#part-2 {
-  --part-color: var(--teal);
-}
-
-#part-3 {
-  --part-color: var(--periwinkle);
-}
-
-#part-4 {
-  --part-color: var(--ink);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .part-title h2 {
@@ -348,8 +310,10 @@ html {
 }
 
 .part li span {
-  font-family: var(--serif);
-  font-size: 17px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 .part li strong {
@@ -390,6 +354,15 @@ footer {
 .markdown {
   font-size: 18px;
   line-height: 1.95;
+}
+
+/* Chapter text reads as a publication: serif body, sans headings. */
+.reader .markdown {
+  font-family: var(--serif);
+}
+
+.reader .markdown :is(h1, h2, h3, h4) {
+  font-family: var(--sans);
 }
 
 .markdown h1 {
@@ -434,11 +407,10 @@ footer {
 }
 
 .markdown blockquote {
-  border-left: 3px solid var(--orange);
-  padding-left: 24px;
-  font-family: var(--serif);
-  font-size: 21px;
-  font-style: italic;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  padding: 16px 24px;
+  font-size: 19px;
 }
 
 .markdown a {
@@ -469,8 +441,8 @@ footer {
 .chapter-feedback {
   margin-top: 40px;
   border: 1px solid var(--line);
-  border-top: 3px solid var(--orange);
-  background: #fff;
+  border-top: 3px solid var(--ink);
+  background: var(--surface);
   padding: 32px;
 }
 
@@ -516,9 +488,9 @@ footer {
 .button {
   display: inline-block;
   border-radius: 4px;
-  background: var(--orange);
+  background: var(--accent);
   padding: 12px 22px;
-  color: var(--ink);
+  color: #fff;
   font-size: 16px;
   font-weight: 600;
   transition:
@@ -559,14 +531,14 @@ button.button:disabled {
   max-height: calc(100% - 32px);
   margin: auto;
   border: 1px solid var(--line);
-  border-top: 3px solid var(--orange);
-  background: #fff;
+  border-top: 3px solid var(--ink);
+  background: var(--surface);
   padding: 0;
   color: var(--text);
 }
 
 .feedback-dialog::backdrop {
-  background: rgb(42 46 56 / 0.5);
+  background: rgb(20 33 61 / 0.55);
 }
 
 .feedback-dialog-body {
@@ -604,10 +576,9 @@ button.button:disabled {
 
 .feedback-dialog-quote {
   margin-top: 16px;
-  border-left: 3px solid var(--orange);
-  background: var(--background);
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
   padding: 10px 14px;
-  font-family: var(--serif);
   font-size: 15px;
   white-space: pre-wrap;
 }
@@ -629,14 +600,14 @@ button.button:disabled {
   margin-top: 8px;
   border: 1px solid var(--line);
   border-radius: 4px;
-  background: var(--background);
+  background: #fff;
   padding: 10px 12px;
   resize: vertical;
 }
 
 .feedback-dialog textarea:focus {
-  border-color: var(--orange);
-  outline: 2px solid var(--orange);
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
   outline-offset: -1px;
 }
 
@@ -660,8 +631,8 @@ button.button:disabled {
 
 .admin-panel {
   border: 1px solid var(--line);
-  border-top: 3px solid var(--orange);
-  background: #fff;
+  border-top: 3px solid var(--ink);
+  background: var(--surface);
   padding: 28px;
   font-size: 16px;
   line-height: 1.7;
@@ -782,8 +753,8 @@ button.button:disabled {
 }
 
 .selection-feedback:hover {
-  background: var(--orange);
-  color: var(--ink);
+  background: var(--accent);
+  color: #fff;
 }
 
 .updates {

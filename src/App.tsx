@@ -156,7 +156,6 @@ export default function App() {
       <main className="index">
         <section className="intro">
           <div className="intro-text">
-            <p className="kicker">An open writing project</p>
             <h1>
               스타트업을 위한
               <br />
