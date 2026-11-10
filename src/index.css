@@ -531,6 +531,242 @@ footer {
   color: #fff;
 }
 
+button.button,
+button.selection-feedback {
+  border: 0;
+  cursor: pointer;
+}
+
+button.button:disabled {
+  background: var(--line);
+  color: var(--ink);
+  cursor: default;
+}
+
+.link-button {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.feedback-dialog {
+  width: min(560px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  margin: auto;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--orange);
+  background: #fff;
+  padding: 0;
+  color: var(--text);
+}
+
+.feedback-dialog::backdrop {
+  background: rgb(42 46 56 / 0.5);
+}
+
+.feedback-dialog-body {
+  position: relative;
+  padding: 32px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.feedback-dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: 0;
+  background: none;
+  padding: 4px 8px;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.feedback-dialog-target {
+  padding-right: 32px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.feedback-dialog h2 {
+  margin-top: 4px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.feedback-dialog-quote {
+  margin-top: 16px;
+  border-left: 3px solid var(--orange);
+  background: var(--background);
+  padding: 10px 14px;
+  font-family: var(--serif);
+  font-size: 15px;
+  white-space: pre-wrap;
+}
+
+.feedback-dialog-body > div > p,
+.feedback-dialog-done p {
+  margin-top: 16px;
+}
+
+.feedback-dialog form label {
+  display: block;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.feedback-dialog textarea {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--background);
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.feedback-dialog textarea:focus {
+  border-color: var(--orange);
+  outline: 2px solid var(--orange);
+  outline-offset: -1px;
+}
+
+.feedback-dialog-account {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.feedback-dialog-error {
+  margin-top: 16px;
+  color: #a1260d;
+  font-weight: 600;
+}
+
+.admin h1 {
+  margin-bottom: 32px;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.admin-panel {
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--orange);
+  background: #fff;
+  padding: 28px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.admin-panel p + p {
+  margin-top: 12px;
+}
+
+.admin-uid code {
+  display: inline-block;
+  background: var(--code-background);
+  padding: 6px 10px;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+.admin-toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.admin-toolbar select {
+  max-width: min(420px, 70vw);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  padding: 6px 8px;
+}
+
+.admin-account {
+  margin-left: auto;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.admin-list {
+  display: grid;
+  gap: 16px;
+}
+
+.admin-entry {
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 24px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.admin-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  font-size: 14px;
+}
+
+.admin-entry-meta strong {
+  color: var(--accent);
+}
+
+.admin-entry-author {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.admin-entry-author a {
+  color: var(--accent);
+}
+
+.admin-entry h3 {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.admin-entry h3 + p {
+  margin-top: 2px;
+  white-space: pre-wrap;
+}
+
+.admin-entry-actions {
+  margin-top: 16px;
+  font-size: 14px;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .feedback-dialog-body {
+    padding: 28px 20px 24px;
+  }
+}
+
 .selection-feedback {
   position: absolute;
   z-index: 20;

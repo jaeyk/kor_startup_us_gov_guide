@@ -1,10 +1,13 @@
-import { useEffect, useRef, useState } from "react"
+import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import Markdown from "react-markdown"
 import chapterDates from "virtual:chapter-dates"
 import { chapters, parts } from "./content"
 import updates from "./content/updates.md?raw"
-import { ChapterFeedback, SelectionFeedback } from "./Feedback"
-import { feedbackUrl, subscribeUrl } from "./feedback-config"
+import { ChapterFeedback, FeedbackLink, SelectionFeedback } from "./Feedback"
+import { subscribeUrl } from "./feedback-config"
+
+// Loaded only on `#/admin`, so readers don't download the Firebase SDK.
+const AdminPage = lazy(() => import("./Admin"))
 
 const markdownFiles = import.meta.glob("./content/chapters/*.md", {
   eager: true,
@@ -74,6 +77,17 @@ export default function App() {
   useEffect(() => {
     scrollToSlug(slug)
   }, [slug])
+
+  if (slug === "admin") {
+    return (
+      <div className="site">
+        <SiteMenu />
+        <Suspense fallback={<main className="reader" />}>
+          <AdminPage />
+        </Suspense>
+      </div>
+    )
+  }
 
   if (chapter) {
     const source = markdownFiles[`./content/chapters/${chapter.file}`]
@@ -163,14 +177,9 @@ export default function App() {
                 의견을 적극적으로 참조하겠습니다.
               </p>
               <div className="feedback-actions">
-                <a
-                  className="button"
-                  href={feedbackUrl()}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <FeedbackLink className="button">
                   알고 싶은 내용 알려주기
-                </a>
+                </FeedbackLink>
                 <a href="#/part-1">목차에서 장 골라 의견 남기기</a>
               </div>
             </div>
@@ -274,14 +283,9 @@ export default function App() {
               <Markdown>{updates}</Markdown>
             </div>
             <div className="feedback-actions">
-              <a
-                className="button"
-                href={feedbackUrl()}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <FeedbackLink className="button">
                 전체에 대한 의견 남기기
-              </a>
+              </FeedbackLink>
               {subscribeUrl && (
                 <a href={subscribeUrl} target="_blank" rel="noreferrer">
                   업데이트 소식 받기
